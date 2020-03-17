@@ -16,3 +16,6 @@ var objects = [{
     position: [[2, 2], [1, 2], [0, 2]]
   }
 ]
+
+var paused = false;
+var gameInterval;

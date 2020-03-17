@@ -36,3 +36,8 @@ body {
   background:#8dd7cf;
   border-color: #1aae9f;
 }
+
+.cell.magneta {
+  background: rgb(167, 36, 167);
+  border-color: #5a014e;
+}
