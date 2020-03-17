@@ -1,13 +1,16 @@
 document.addEventListener("keydown", event => {
   switch (event.keyCode) {
     case DOWN:
-      updateDown();
+      if (!paused)
+        updateDown();
       break;
     case LEFT:
-      updateSidewards(([y,x]) => [y, x-1]);
+      if (!paused)
+        updateSidewards(([y,x]) => [y, x-1]);
       break;
     case RIGHT:
-      updateSidewards(([y,x]) => [y, x+1]);
+      if (!paused)
+        updateSidewards(([y,x]) => [y, x+1]);
       break;
     case PAUSE:
       if (paused) {

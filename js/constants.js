@@ -2,7 +2,7 @@ const TYPE_COLORS = {
   "L": 'red',
   "T": 'purple',
   "I": 'green',
-  "Г": 'magneta'
+  "o": 'magneta'
 }
 
 const INITIAL_POSITIONS = {

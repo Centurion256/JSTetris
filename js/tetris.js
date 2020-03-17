@@ -249,7 +249,7 @@ function simpleSpawn() {
   //   position: [[9, 1], [8, 1], [7, 1], [7, 2]]
   // }
   let tile = {
-        type: '*',
+        type: 'o',
         state: 'falling',
         position: [[9,0]]
   };
