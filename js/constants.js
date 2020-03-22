@@ -1,8 +1,17 @@
+const HEIGHT = 20;
+const WIDTH = 10;
+const ROTATION_COUNT = 4;
+const TEST_COUNT = 5;
+
 const TYPE_COLORS = {
   "L": 'red',
   "T": 'purple',
   "I": 'green',
-  "o": 'magneta'
+  "o": 'magneta',
+  "J": 'orange',
+  "O": 'yellow',
+  "S": 'green',
+  "Z": 'red'
 }
 
 const INITIAL_POSITIONS = {
@@ -10,10 +19,42 @@ const INITIAL_POSITIONS = {
   "T": [[9, 2], [9, 3], [9, 4], [8, 3]],
   "I": [[9, 2], [8, 2], [7, 2]]
 }
-const HEIGHT = 10;
-const WIDTH = 5;
+//the first tile is the rotational tile.
+const TETROMINOES = {
+  "I": [[HEIGHT-2, 1], [HEIGHT-2, 0], [HEIGHT-2, 2], [HEIGHT-2, 3]],
+  "J": [[HEIGHT-2, 1], [HEIGHT-1, 0], [HEIGHT-2, 0], [HEIGHT-2, 2]],
+  "L": [[HEIGHT-2, 1], [HEIGHT-1, 2], [HEIGHT-2, 2], [HEIGHT-2, 0]],
+  "O": [[HEIGHT-2, 1], [HEIGHT-1, 1], [HEIGHT-2, 2], [HEIGHT-1, 2]],
+  "S": [[HEIGHT-2, 1], [HEIGHT-2, 0], [HEIGHT-1, 1], [HEIGHT-1, 2]],
+  "T": [[HEIGHT-2, 1], [HEIGHT-1, 1], [HEIGHT-2, 2], [HEIGHT-2, 0]],
+  "Z": [[HEIGHT-2, 1], [HEIGHT-1, 1], [HEIGHT-1, 0], [HEIGHT-2, 2]]
+}
+
+//There are five tests and four possible rotations. 
+//for more info, please refer to http://harddrop.com/wiki/SRS.
+const JLSTZ_OFFSETS = [
+  [[0, 0], [0, 0], [0, 0], [0, 0]],
+  [[0, 0], [1, 0], [0, 0], [-1, 0]],
+  [[0, 0], [1, -1], [0, 0], [-1, -1]],
+  [[0, 0], [0, 2], [0, 0], [0, 2]],
+  [[0, 0], [1, 2], [0, 0], [1, 2]]
+];
+const I_OFFSETS = [
+  [[0, 0], [-1, 0], [-1, 1], [0, 1]],
+  [[-1, 0], [0, 0], [1, 1], [0, 1]],
+  [[2, 0], [0, 0], [2, 1], [0, 1]],
+  [[-1, 0], [0, 1], [1, 0], [0, -1]],
+  [2, 0], [0, -2], [-2, 0], [0, 2]
+];
+const O_OFFSETS = [
+  [[0, 0], [0, -1], [-1, -1], [-1, 0]]
+];
+
+
 // Event keys
 const DOWN  = 40;
 const LEFT  = 37;
 const RIGHT = 39;
 const PAUSE = 32;
+const ROTATER = 82;
+const ROTATEL = 81;

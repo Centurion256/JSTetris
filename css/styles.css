@@ -2,14 +2,31 @@ body {
   background: #f0f4f7;
 }
 
-#playground, #playground2 {
-  margin: 20px 200px;
+.outer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  
+}
+
+
+.outer-grid > #playground {
+  /* margin: 20px 40%; */
+  /* margin: auto auto; */
+  padding: auto;
+  justify-self: end;
+}
+
+.outer-grid > #next-tetromino {
+  /* margin: auto auto; */
+  padding-inline-start: 1em;
+  justify-self: start;
 }
 
 .row {
   display: grid;
-  grid-template-columns: 40px 40px 40px 40px 40px;
-  grid-gap: 8px;
+  grid-template-columns:repeat(10, 20px);
+  gap: 8px;
   margin-bottom: 4px;
 }
 
@@ -18,8 +35,8 @@ body {
   background:#ffffff;
   border-color: #c3cfd9;
   border-radius: 3px;
-  height: 40px;
-  width: 40px;
+  height: 20px;
+  width: 20px;
 }
 
 .cell.red {
@@ -30,6 +47,16 @@ body {
 .cell.purple {
   background:#b2acfa;
   border-color: #6558f5;
+}
+
+.cell.yellow {
+  background:#f5faac;
+  border-color: #cacc4c;
+}
+
+.cell.orange {
+  background:#fae1ac;
+  border-color: #f5b658;
 }
 
 .cell.green {
