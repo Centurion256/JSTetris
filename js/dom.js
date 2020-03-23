@@ -32,6 +32,11 @@ function renderNext(tetromino) {
   }
 }
 
+function updateScore() {
+  score_node.innerHTML = `Score: ${score}`;
+
+}
+
 // Creates <div class="row" id="row-9">
 function createRow(rowIndex) {
   let rowNode = document.createElement('div');

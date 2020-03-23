@@ -17,10 +17,50 @@ body {
   justify-self: end;
 }
 
+.outer-grid > #info-panel {
+  /* margin: auto auto; */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 4fr;
+  row-gap: 1em;
+  padding-inline-start: 1em;
+  justify-self: start;
+}
+
 .outer-grid > #next-tetromino {
   /* margin: auto auto; */
   padding-inline-start: 1em;
   justify-self: start;
+}
+#info-panel > #score {
+  font-size: x-large;
+}
+
+#info-panel > #game-over {
+  visibility: hidden;
+  /* align-self: flex-start; */
+  /* justify-self: start; */
+
+}
+
+#info-panel > #game-over > span {
+  visibility: inherit;
+  font-size: x-large;
+  padding-inline-start: 8px;
+  display: block;
+  margin-bottom: 1em;
+}
+
+#info-panel > #game-over > button {
+  visibility: inherit;
+  border: 2px solid;
+  background:#ffffff;
+  border-color: #c3cfd9;
+  border-radius: 25px;
+  text-align: center;
+  width: 10em; 
+  height: 2em;
+
 }
 
 .row {

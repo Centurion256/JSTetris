@@ -1,6 +1,6 @@
 var getCurrentObject =  () => objects.find(object => object.state === 'falling');
 var createPlayground = () => (new Array(HEIGHT).fill().map( el => (new Array(WIDTH).fill())));
-var createNextDisplay = () => (new Array(5).fill().map(el => (new Array(5).fill())));
+var createNextDisplay = () => (new Array(5).fill().map(el => (new Array(NEXT_WIDTH).fill())));
 var overlaps = (obj, tile) => obj.position.some(position => position.every((coordinate, index) => coordinate === tile[index]));
 var isValid = (coordinate) => (coordinate[0] >= 0 && coordinate[0] < HEIGHT) && (coordinate[1] >= 0 && coordinate[1] < WIDTH);
 var getPiece = (coordinate) => objects.find(obj => overlaps(obj, coordinate));

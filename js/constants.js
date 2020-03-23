@@ -1,5 +1,6 @@
 const HEIGHT = 20;
 const WIDTH = 10;
+const NEXT_WIDTH = 5;
 const ROTATION_COUNT = 4;
 const TEST_COUNT = 5;
 
@@ -13,6 +14,21 @@ const TYPE_COLORS = {
   "S": 'green',
   "Z": 'red'
 }
+const INITIAL_OBJECTS = [{
+  type: 'T',
+  state: 'static',
+  rotation_index: 0,
+  position: [[3, 2], [3, 3], [3, 4], [2, 3]]
+}, {
+  type: 'L',
+  state: 'static',
+  position: [[2, 0], [1, 0], [0, 0], [0, 1]]
+}, {
+  type: 'I',
+  state: 'static',
+  rotation_index: 0,
+  position: [[2, 2], [1, 2], [0, 2]]
+}];
 
 const INITIAL_POSITIONS = {
   "L": [[9, 1], [8, 1], [8, 2], [8, 3]],

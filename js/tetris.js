@@ -154,13 +154,17 @@ function shiftDown(shift_index) {
 }
 
 function removeFilledRowsDynamic(from, to) {
-  let rows_to_destroy = [];
+  
+  let multiplier = 1;
   for (let row = from; row <= to; row++)
   {
     let filled = playground[row].every(tile => tile != undefined);
     if (filled)
     {
-      rows_to_destroy.push(row);
+      //The scoring system is simple: each cleared row = 100 * 2^(number of rows cleared before).
+      //The total can be calculated as $\sum_{n=0}^{cleared_rows} (2^n * 100)$.
+      score += 100 * multiplier;
+      multiplier *= 2;
       clearRow(row);
       shiftDown(row);
       row--; //check the shifted row again
@@ -168,7 +172,8 @@ function removeFilledRowsDynamic(from, to) {
       createAndRender();
     }
   }
-  
+  updateScore();
+  //TODO: Garbage collection
 
 }
 
@@ -301,6 +306,13 @@ function smartSpawn() {
   tetromino.position.forEach(tile => console.log(`next tetromino postion: ${tile}`));
 }
 
+function gameOver() {
+  document.removeEventListener("keydown", gameKeyHandler);
+  reset_button_node.addEventListener("click", restartGameHandler);
+  pauseGame();
+  game_over_node.style.visibility = "visible";
+}
+
 function rotatePiece(obj, clockwise, to_offset) {
   
   let old_rotation_index = obj.rotation_index;
@@ -385,7 +397,7 @@ function applyTests(obj, old_rotation_index, tester) {
     }
     last_test = vectorOp(tester[test_num][old_rotation_index], tester[test_num][obj.rotation_index], (x,y) => x - y).reverse(); 
     new_positions = obj.position.map((tile) => vectorOp(tile, last_test, (x, y) => x + y));
-    //TODO: proper overlap checks
+    //TODO: proper overlap checks -- done.
     //Now check if the tile has valid coordinates and if it overlaps with some other piece (but not itself, all tiles that do were removed previously)
     can_offset = new_positions.every((tile) => isValid(tile) && playground[tile[0]][tile[1]] == undefined);
     if (can_offset) 
